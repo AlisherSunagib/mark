@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
+gem "paperclip_database", "~> 2.0"
+
+gem "paperclip", "~> 6.0.0"
 gem 'bootstrap-sass'
 gem 'bcrypt'
 # Use Puma as the app server

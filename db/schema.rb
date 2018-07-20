@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_17_203736) do
+ActiveRecord::Schema.define(version: 2018_07_20_142515) do
 
   create_table "Users", force: :cascade do |t|
     t.string "name"
@@ -22,8 +22,91 @@ ActiveRecord::Schema.define(version: 2018_07_17_203736) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "disciplines", force: :cascade do |t|
+    t.string "name"
+    t.string "university"
+    t.string "speciality"
+    t.string "user"
+    t.integer "estimation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "syllabus_file_name"
+    t.string "syllabus_content_type"
+    t.integer "syllabus_file_size"
+    t.datetime "syllabus_updated_at"
+    t.string "rup_file_name"
+    t.string "rup_content_type"
+    t.integer "rup_file_size"
+    t.datetime "rup_updated_at"
+  end
+
+  create_table "estimations", force: :cascade do |t|
+    t.string "user"
+    t.string "discipline"
+    t.string "speciality"
+    t.string "university"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ocen_list_edited_file_name"
+    t.string "ocen_list_edited_content_type"
+    t.integer "ocen_list_edited_file_size"
+    t.datetime "ocen_list_edited_updated_at"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string "name"
+    t.string "university"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "speciality_pulls", force: :cascade do |t|
+    t.string "key"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ocen_list_file_name"
+    t.string "ocen_list_content_type"
+    t.integer "ocen_list_file_size"
+    t.datetime "ocen_list_updated_at"
+  end
+
+  create_table "syllabuses", force: :cascade do |t|
+    t.string "school"
+    t.string "university"
+    t.string "coordinator"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "document_file_name"
+    t.string "document_content_type"
+    t.integer "document_file_size"
+    t.datetime "document_updated_at"
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string "key"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "mop_file_name"
+    t.string "mop_content_type"
+    t.integer "mop_file_size"
+    t.datetime "mop_updated_at"
+    t.string "ked_file_name"
+    t.string "ked_content_type"
+    t.integer "ked_file_size"
+    t.datetime "ked_updated_at"
+  end
+
+  create_table "university_pulls", force: :cascade do |t|
+    t.integer "key"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
