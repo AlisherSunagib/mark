@@ -31,10 +31,11 @@
     <%= form.text_field :user %>
   </div>
 
-  <div class="field">
-    <%= form.label :estimation %>
-    <%= form.number_field :estimation %>
-  </div>
+  <%= form.label "syllabus" %>
+  <%= form.file_field :syllabus %>
+
+  <%= form.label "РУП" %>
+  <%= form.file_field :rup %>
 
   <div class="actions">
     <%= form.submit %>

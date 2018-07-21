@@ -11,7 +11,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)   
     if @user.save 
     	log_in @user
-      redirect_to @user
+      if @user.role == 'coordinator'
+        redirect_to universities_url
+      else 
+        redirect_to universities_url
+      end
     else
       render 'new'
     end

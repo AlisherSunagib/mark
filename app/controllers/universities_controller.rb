@@ -26,15 +26,14 @@ class UniversitiesController < ApplicationController
   def create
     @university = University.new(university_params)
 
-    respond_to do |format|
+    
       if @university.save
-        format.html { redirect_to @university, notice: 'University was successfully created.' }
-        format.json { render :show, status: :created, location: @university }
+        
+       redirect_to disciplines_url
       else
-        format.html { render :new }
-        format.json { render json: @university.errors, status: :unprocessable_entity }
+        render 'new'
       end
-    end
+    
   end
 
   # PATCH/PUT /universities/1
@@ -69,6 +68,6 @@ class UniversitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def university_params
-      params.require(:university).permit(:key, :name)
+      params.require(:university).permit(:key, :name, :mop, :ked)
     end
 end

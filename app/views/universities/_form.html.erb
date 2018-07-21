@@ -21,6 +21,12 @@
     <%= form.text_field :name %>
   </div>
 
+  <%= form.label "Модуль образовательных программ" %>
+  <%= form.file_field :mop %>
+
+  <%= form.label "Каталог элективных дисциплин" %>
+  <%= form.file_field :ked %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

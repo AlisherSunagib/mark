@@ -10,5 +10,15 @@
   <%= @university.name %>
 </p>
 
+<p>
+	<strong>МОП:</strong>
+	<%= link_to "ссылка", @university.mop.url(:original, false) %>
+</p>
+
+<p>
+	<strong>КЭД:</strong>
+	<%= link_to "ссылка", @university.ked.url(:original, false) %>
+</p>
+
 <%= link_to 'Edit', edit_university_path(@university) %> |
 <%= link_to 'Back', universities_path %>

@@ -1,8 +1,8 @@
 class Discipline < ApplicationRecord
 	has_one :estimation
-	belongs_to :user
-	belongs_to :speciality
-	belongs_to :university 
+	#belongs_to :User, :primary_key => "email", :foreign_key => "user"
+	#belongs_to :speciality
+	#belongs_to :university, :primary_key => "key", :foreign_key => "university"
 	validates :name, presence: true
 	
 
